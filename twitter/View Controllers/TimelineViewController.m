@@ -77,6 +77,7 @@
     // Reuses old objects to preserve memory. Uses TweetCell Template.
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     Tweet *tweet = self.tweets[indexPath.row];
+    cell.tweet = tweet;
     cell.dateLabel.text = tweet.createdAtString;
     cell.likesLabel.text = [NSString stringWithFormat:@"%i", tweet.favoriteCount];
     cell.nameLabel.text = tweet.user.name;
@@ -84,6 +85,11 @@
     cell.repliesLabel.text = [NSString stringWithFormat:@"%i", tweet.replyCount];
     cell.bodyLabel.text = tweet.text;
     cell.retweetsLabel.text = [NSString stringWithFormat:@"%i", tweet.retweetCount];
+    if (tweet.favorited) {
+        cell.favorButton.selected = YES;
+    } else {
+        cell.favorButton.selected = NO;
+    }
     NSString *url = tweet.user.profileLink;
     NSURL *profileURL = [NSURL URLWithString:url];
     [cell.profileView setImageWithURL:profileURL];
