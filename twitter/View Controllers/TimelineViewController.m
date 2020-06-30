@@ -90,6 +90,11 @@
     } else {
         cell.favorButton.selected = NO;
     }
+    if (tweet.retweeted) {
+        cell.retweetButton.selected = YES;
+    } else {
+        cell.retweetButton.selected = NO;
+    }
     NSString *url = tweet.user.profileLink;
     NSURL *profileURL = [NSURL URLWithString:url];
     [cell.profileView setImageWithURL:profileURL];
