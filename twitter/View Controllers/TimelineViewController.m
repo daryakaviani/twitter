@@ -49,10 +49,6 @@
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
             self.tweets = (NSMutableArray *) tweets;
-            for (Tweet *tweet in self.tweets) {
-                NSString *text = tweet.text;
-                NSLog(@"%@", text);
-            }
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
@@ -115,11 +111,14 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    UINavigationController *navigationController = [segue destinationViewController];
-//    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-//    composeController.delegate = self;
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toCompose"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+        composeController.delegate = self;
+    }
+    
+}
 
 
 
