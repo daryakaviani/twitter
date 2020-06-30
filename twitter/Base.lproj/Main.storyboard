@@ -191,7 +191,7 @@
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="eOg-g7-jmg" secondAttribute="bottom" constant="10" id="Aak-gh-5Ix"/>
                                                 <constraint firstItem="dk1-4e-mYP" firstAttribute="leading" secondItem="Inr-o9-Q1n" secondAttribute="trailing" constant="42.5" id="Dhm-zT-uaa"/>
                                                 <constraint firstItem="ri6-Hm-aep" firstAttribute="leading" secondItem="tgK-S6-mu7" secondAttribute="trailing" constant="8.5" id="EfF-PR-bJG"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Ddg-4w-gJA" secondAttribute="trailing" constant="20" id="HzB-4p-6mv"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ddg-4w-gJA" secondAttribute="trailing" constant="20" id="HzB-4p-6mv"/>
                                                 <constraint firstItem="eOg-g7-jmg" firstAttribute="leading" secondItem="gXm-wg-Hne" secondAttribute="leading" constant="15" id="IxM-jZ-fDP"/>
                                                 <constraint firstItem="YMO-Jr-Obz" firstAttribute="leading" secondItem="eOg-g7-jmg" secondAttribute="trailing" constant="15" id="Jtc-8b-wfg"/>
                                                 <constraint firstItem="Inr-o9-Q1n" firstAttribute="leading" secondItem="eOg-g7-jmg" secondAttribute="trailing" constant="8" id="L5r-jA-MIb"/>
@@ -202,7 +202,7 @@
                                                 <constraint firstItem="7dB-dW-f1m" firstAttribute="leading" secondItem="dk1-4e-mYP" secondAttribute="trailing" constant="40.5" id="Ur0-mj-ogF"/>
                                                 <constraint firstItem="ri6-Hm-aep" firstAttribute="top" secondItem="gXm-wg-Hne" secondAttribute="topMargin" constant="5" id="XEj-6v-qYS"/>
                                                 <constraint firstItem="Ddg-4w-gJA" firstAttribute="leading" secondItem="57G-3u-vUA" secondAttribute="trailing" constant="8" id="Zzr-Rh-INd"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="YMO-Jr-Obz" secondAttribute="trailing" constant="15" id="b1j-rv-pJF"/>
+                                                <constraint firstAttribute="trailing" secondItem="YMO-Jr-Obz" secondAttribute="trailing" constant="35" id="b1j-rv-pJF"/>
                                                 <constraint firstItem="dk1-4e-mYP" firstAttribute="top" secondItem="Inr-o9-Q1n" secondAttribute="top" id="hri-M5-Shd"/>
                                                 <constraint firstItem="ri6-Hm-aep" firstAttribute="firstBaseline" secondItem="tgK-S6-mu7" secondAttribute="firstBaseline" id="hww-qt-Drr"/>
                                                 <constraint firstItem="7dB-dW-f1m" firstAttribute="top" secondItem="Inr-o9-Q1n" secondAttribute="top" id="mP2-PW-z1l"/>
