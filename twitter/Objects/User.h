@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIImage+AFNetworking.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *screenName;
+@property (nonatomic, strong) NSString *profileLink;
 
 // Dictionary that will be used for tweets, movies, users, etc.
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

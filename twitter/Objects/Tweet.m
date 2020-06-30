@@ -8,6 +8,7 @@
 
 #import "Tweet.h"
 #import "User.h"
+#import <UIImage+AFNetworking.h>
 
 @implementation Tweet
 

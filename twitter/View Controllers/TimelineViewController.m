@@ -10,6 +10,7 @@
 #import "APIManager.h"
 #import "Tweet.h"
 #import "TweetCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -60,6 +61,10 @@
     return self.tweets.count;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 // Creating and configured a cell.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Reuses old objects to preserve memory. Uses TweetCell Template.
@@ -70,10 +75,14 @@
     cell.nameLabel.text = tweet.user.name;
     cell.usernameLabel.text = tweet.user.screenName;
     cell.repliesLabel.text = [NSString stringWithFormat:@"%i", tweet.replyCount];
-    cell.textLabel.text = tweet.text;
+    cell.bodyLabel.text = tweet.text;
     cell.retweetsLabel.text = [NSString stringWithFormat:@"%i", tweet.retweetCount];
+    NSString *url = tweet.user.profileLink;
+    NSURL *profileURL = [NSURL URLWithString:url];
+    [cell.profileView setImageWithURL:profileURL];
     return cell;
 }
+
 
 /*
 #pragma mark - Navigation
