@@ -17,6 +17,9 @@
         self.name = dictionary[@"name"];
         self.screenName = [@"@" stringByAppendingString:dictionary[@"screen_name"]];
         self.profileLink = dictionary[@"profile_image_url_https"];
+        self.followers = [dictionary[@"followers_count"] intValue];
+        self.following = [dictionary[@"friends_count"] intValue];
+        self.bio = dictionary[@"description"];
     }
     return self;
 }

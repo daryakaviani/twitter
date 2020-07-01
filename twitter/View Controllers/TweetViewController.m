@@ -23,6 +23,13 @@
     self.likesLabel.text = [NSString stringWithFormat:@"%i", self.tweet.favoriteCount];
     self.nameLabel.text = self.tweet.user.name;
     self.usernameLabel.text = self.tweet.user.screenName;
+    self.bodyLabel.userInteractionEnabled = YES;
+    PatternTapResponder urlTapAction = ^(NSString *tappedString) {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tappedString]];
+    };
+    [self.bodyLabel enableURLDetectionWithAttributes:
+    @{NSForegroundColorAttributeName:[UIColor cyanColor],NSUnderlineStyleAttributeName:[NSNumber
+    numberWithInt:1],RLTapResponderAttributeName:urlTapAction}];
     self.bodyLabel.text = self.tweet.text;
     self.retweetsLabel.text = [NSString stringWithFormat:@"%i", self.tweet.retweetCount];
     if (self.tweet.favorited) {

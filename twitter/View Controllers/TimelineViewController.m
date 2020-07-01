@@ -36,9 +36,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    
     [self fetchTimeline];
-    
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchTimeline) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
@@ -89,6 +87,13 @@
     cell.nameLabel.text = tweet.user.name;
     cell.usernameLabel.text = tweet.user.screenName;
     cell.repliesLabel.text = [NSString stringWithFormat:@"%i", tweet.replyCount];
+    cell.bodyLabel.userInteractionEnabled = YES;
+    PatternTapResponder urlTapAction = ^(NSString *tappedString) {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tappedString]];
+    };
+    [cell.bodyLabel enableURLDetectionWithAttributes:
+    @{NSForegroundColorAttributeName:[UIColor cyanColor],NSUnderlineStyleAttributeName:[NSNumber
+    numberWithInt:1],RLTapResponderAttributeName:urlTapAction}];
     cell.bodyLabel.text = tweet.text;
     cell.retweetsLabel.text = [NSString stringWithFormat:@"%i", tweet.retweetCount];
     if (tweet.favorited) {
