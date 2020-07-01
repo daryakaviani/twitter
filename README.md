@@ -22,11 +22,11 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [ ] User can view their profile in a *profile tab*
-  - Contains the user header view: picture and tagline
-  - Contains a section with the users basic stats: # tweets, # following, # followers
-  - [ ] Profile view should include that user's timeline
 - [x] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count. Refer to [[this guide|unretweeting]] for help on implementing unretweeting.
+- [ ] User can view their profile in a *profile tab*
+  - [ ] Contains the user header view: picture and tagline
+  - [ ] Contains a section with the users basic stats: # tweets, # following, # followers
+  - [ ] Profile view should include that user's timeline
 - [ ] Links in tweets are clickable.
 - [ ] User can tap the profile image in any tweet to see another user's profile
   - Contains the user header view: picture and tagline
