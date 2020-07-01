@@ -27,7 +27,7 @@ The following **optional** features are implemented:
   - [ ] Contains the user header view: picture and tagline
   - [ ] Contains a section with the users basic stats: # tweets, # following, # followers
   - [ ] Profile view should include that user's timeline
-- [ ] Links in tweets are clickable.
+- [x] Links in tweets are clickable.
 - [ ] User can tap the profile image in any tweet to see another user's profile
   - Contains the user header view: picture and tagline
   - Contains a section with the users basic stats: # tweets, # following, # followers
