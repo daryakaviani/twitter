@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B25244E24AC478A00DB10E0 /* TweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B25244D24AC478A00DB10E0 /* TweetViewController.m */; };
 		4B8E0AE324AA7D430028800D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E0AE224AA7D430028800D /* User.m */; };
 		4B8E0AE724AA7E780028800D /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E0AE624AA7E780028800D /* Tweet.m */; };
 		4BB9C4E524AADC6700E46A41 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9C4E424AADC6700E46A41 /* ComposeViewController.m */; };
@@ -26,6 +27,8 @@
 /* Begin PBXFileReference section */
 		1397EA94AE1DE5F26C1724FD /* Pods-twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-twitter/Pods-twitter.release.xcconfig"; sourceTree = "<group>"; };
 		43D6142D6F34C1AE98EE4951 /* libPods-twitter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-twitter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B25244C24AC478A00DB10E0 /* TweetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TweetViewController.h; sourceTree = "<group>"; };
+		4B25244D24AC478A00DB10E0 /* TweetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TweetViewController.m; sourceTree = "<group>"; };
 		4B8E0AE124AA7D430028800D /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		4B8E0AE224AA7D430028800D /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		4B8E0AE524AA7E780028800D /* Tweet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
@@ -157,6 +160,8 @@
 				6AD2790820BCC04D0085BC29 /* TimelineViewController.m */,
 				4BB9C4E324AADC6700E46A41 /* ComposeViewController.h */,
 				4BB9C4E424AADC6700E46A41 /* ComposeViewController.m */,
+				4B25244C24AC478A00DB10E0 /* TweetViewController.h */,
+				4B25244D24AC478A00DB10E0 /* TweetViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 				4B8E0AE324AA7D430028800D /* User.m in Sources */,
 				4BB9C4E524AADC6700E46A41 /* ComposeViewController.m in Sources */,
 				6AD278E820BC4B970085BC29 /* main.m in Sources */,
+				4B25244E24AC478A00DB10E0 /* TweetViewController.m in Sources */,
 				4B8E0AE724AA7E780028800D /* Tweet.m in Sources */,
 				6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */,
 				6AD278DA20BC4B950085BC29 /* AppDelegate.m in Sources */,

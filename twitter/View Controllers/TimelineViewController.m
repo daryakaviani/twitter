@@ -14,6 +14,7 @@
 #import "ComposeViewController.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "TweetViewController.h"
 
 @interface TimelineViewController () </*ComposeViewControllerDelegate, */ UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -83,7 +84,7 @@
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     Tweet *tweet = self.tweets[indexPath.row];
     cell.tweet = tweet;
-    cell.dateLabel.text = tweet.createdAtString;
+    cell.dateLabel.text = tweet.timeAgo;
     cell.likesLabel.text = [NSString stringWithFormat:@"%i", tweet.favoriteCount];
     cell.nameLabel.text = tweet.user.name;
     cell.usernameLabel.text = tweet.user.screenName;
@@ -117,7 +118,13 @@
         ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
         composeController.delegate = self;
     }
-    
+    if ([segue.identifier isEqualToString:@"toTweet"]) {
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Tweet *tweet = self.tweets[indexPath.row];
+        TweetViewController *tweetViewController = [segue destinationViewController];
+        tweetViewController.tweet = tweet;
+    }
 }
 
 
