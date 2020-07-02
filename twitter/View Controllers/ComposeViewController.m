@@ -9,7 +9,8 @@
 #import "ComposeViewController.h"
 #import "APIManager.h"
 
-@interface ComposeViewController ()
+@interface ComposeViewController ()<UITextViewDelegate>
+@property (weak, nonatomic) IBOutlet UITextView *characterCount;
 @property (weak, nonatomic) IBOutlet UITextView *tweetBody;
 @end
 
@@ -35,8 +36,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tweetBody.delegate = self;
+    self.tweetBody.text = @"What do you want to tweet?";
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    self.characterCount.text = [NSString stringWithFormat:@"%lu", 140 - self.tweetBody.text.length];
+    return self.tweetBody.text.length + (text.length - range.length) <= 140;
+}
 /*
 #pragma mark - Navigation
 

@@ -8,6 +8,7 @@
 
 #import "ProfileViewController.h"
 #import <UIImageView+AFNetworking.h>
+#import "APIManager.h"
 
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *profileView;
@@ -23,17 +24,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.nameLabel.text = self.user.name;
-    self.usernameLabel.text = self.user.screenName;
-    self.bioLabel.text = self.user.bio;
-    self.usernameLabel.text = self.user.screenName;
-    self.followingLabel.text = [NSString stringWithFormat:@"%i", self.user.following];
-    self.followerLabel.text = [NSString stringWithFormat:@"%i", self.user.followers];
-    NSString *url = self.user.profileLink;
+    if (self.user == nil) {
+        [[APIManager shared] userData:self.user completion:^(User *user, NSError *error){
+            if(user) {
+                [self setToMyProfile:user];
+            } else {
+                NSLog(@"Error!");
+            }
+        }];
+    } else {
+        [self setToMyProfile:self.user];
+    }
+}
+
+- (void)setToMyProfile:(User *)user {
+    self.nameLabel.text = user.name;
+    self.usernameLabel.text = user.screenName;
+    self.bioLabel.text = user.bio;
+    self.usernameLabel.text = user.screenName;
+    self.followingLabel.text = [NSString stringWithFormat:@"%i", user.following];
+    self.followerLabel.text = [NSString stringWithFormat:@"%i", user.followers];
+    NSString *url = user.profileLink;
     NSURL *profileURL = [NSURL URLWithString:url];
     [self.profileView setImageWithURL:profileURL];
 }
-
 
 
 /*

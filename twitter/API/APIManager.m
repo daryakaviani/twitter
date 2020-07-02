@@ -129,4 +129,16 @@ static NSString * const consumerSecret = @"0PY5H52neY9tUV4v7nypkviLfCMQj3he0vxxU
     }];
 }
 
+- (void)userData:(User *)user completion:(void(^)(User *, NSError*))completion{
+    NSString *urlString = @"1.1/account/verify_credentials.json";
+    [self GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable userDictionary) {
+        User *user = [[User alloc]initWithDictionary:userDictionary];
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:userDictionary];
+        [[NSUserDefaults standardUserDefaults] setValue:data forKey:@"user_info"];
+        completion(user, nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        completion(nil, error);
+    }];
+}
+
 @end;
