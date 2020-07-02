@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *bio;
 // Dictionary that will be used for tweets, movies, users, etc.
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
++ (NSMutableArray *)usersWithArray:(NSArray *)dictionaries;
 
 @end
 

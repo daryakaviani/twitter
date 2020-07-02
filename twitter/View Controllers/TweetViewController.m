@@ -9,6 +9,7 @@
 #import "TweetViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "APIManager.h"
+#import "TweetCell.h"
 
 @interface TweetViewController ()
 
@@ -46,6 +47,7 @@
     NSURL *profileURL = [NSURL URLWithString:url];
     [self.profileView setImageWithURL:profileURL];
 }
+
 - (IBAction)didTapReply:(id)sender {
 }
 - (IBAction)didTapRetweet:(id)sender {

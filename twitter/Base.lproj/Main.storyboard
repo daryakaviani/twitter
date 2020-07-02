@@ -96,6 +96,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="eOg-g7-jmg">
                                                     <rect key="frame" x="15" y="15" width="80" height="80"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="4Yc-Wt-itO"/>
                                                         <constraint firstAttribute="width" constant="80" id="DDW-pc-SE9"/>
@@ -103,6 +104,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgK-S6-mu7">
                                                     <rect key="frame" x="107" y="14" width="90.5" height="20.5"/>
+                                                    <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -273,11 +275,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="6ju-lj-yda" id="Ass-V9-Kbh"/>
+                        <segue destination="Q6u-JJ-JDL" kind="show" identifier="profileSegue" id="8jd-kL-PyY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQh-hN-GQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1659.4202898550725" y="36.160714285714285"/>
+            <point key="canvasLocation" x="1657" y="60"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="Y5s-Hz-yKL">
@@ -317,7 +320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xFU-xF-KST" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3501" y="-467"/>
+            <point key="canvasLocation" x="4570" y="-658"/>
         </scene>
         <!--Tweet View Controller-->
         <scene sceneID="wRk-3l-r4C">
@@ -343,6 +346,10 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Pf-MQ-gII">
                                         <rect key="frame" x="20" y="20" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="WEf-AH-05Q" appends="YES" id="UNC-hW-tIt"/>
+                                        </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFK-jc-gl5">
                                         <rect key="frame" x="111" y="23" width="144" height="33"/>
@@ -473,8 +480,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UwA-VG-bKq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="WEf-AH-05Q">
+                    <connections>
+                        <action selector="didTapProfile:" destination="oHs-vn-IAf" id="HiB-kv-7hS"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2540.579710144928" y="211.60714285714286"/>
+            <point key="canvasLocation" x="3790" y="36"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WUT-Ke-VeR">
@@ -504,9 +516,6 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="Q6u-JJ-JDL" kind="relationship" relationship="rootViewController" id="B4Y-ht-kMk"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TAk-ib-wEK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -520,7 +529,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sLg-9J-BgK">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sLg-9J-BgK">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -599,17 +608,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="cH9-Yf-T01"/>
                     <connections>
-                        <outlet property="bioLabel" destination="A2B-Tc-7Av" id="7mg-Ug-lzQ"/>
-                        <outlet property="followerLabel" destination="7KA-FG-cMK" id="vM3-Sw-L1I"/>
-                        <outlet property="followingLabel" destination="2Mm-vH-iJI" id="hfK-NL-jX9"/>
-                        <outlet property="nameLabel" destination="DJz-a6-F4K" id="l8f-jb-N5m"/>
-                        <outlet property="profileView" destination="3kr-AL-azE" id="7l0-ZR-jN6"/>
-                        <outlet property="usernameLabel" destination="5aL-GI-Gpy" id="SmS-dC-uyG"/>
+                        <outlet property="bioLabel" destination="A2B-Tc-7Av" id="8dr-Dn-uu0"/>
+                        <outlet property="followerLabel" destination="7KA-FG-cMK" id="gPy-e4-7A5"/>
+                        <outlet property="followingLabel" destination="2Mm-vH-iJI" id="O7h-e2-DFJ"/>
+                        <outlet property="nameLabel" destination="DJz-a6-F4K" id="OWO-mO-2VI"/>
+                        <outlet property="profileView" destination="3kr-AL-azE" id="LPb-zp-XoR"/>
+                        <outlet property="usernameLabel" destination="5aL-GI-Gpy" id="Ed2-mR-zht"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v2y-3K-T8e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1656.521739130435" y="-658.25892857142856"/>
+            <point key="canvasLocation" x="2525" y="-856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="86Z-9y-ISA">
@@ -627,7 +636,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQK-7G-awG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2542" y="-467"/>
+            <point key="canvasLocation" x="3790" y="-658"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

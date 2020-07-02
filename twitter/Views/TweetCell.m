@@ -10,11 +10,14 @@
 #import "APIManager.h"
 
 @implementation TweetCell
-
 - (void)awakeFromNib {
     [super awakeFromNib];
+    UITapGestureRecognizer *profileTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapUserProfile:)];
+    [self.profileView addGestureRecognizer:profileTapGestureRecognizer];
+    [self.profileView setUserInteractionEnabled:YES];
     // Initialization code
 }
+
 - (IBAction)didTapFavorite:(id)sender {
     if (self.tweet.favorited) {
         self.tweet.favorited = NO;
@@ -84,6 +87,11 @@
             }
         }];
     }
+}
+
+// ADDING DIRECT TO USER PROFILE FEATURE
+- (void) didTapUserProfile:(UITapGestureRecognizer *)sender{
+    [self.delegate tweetCell:self didTap:self.tweet.user];
 }
 
 @end

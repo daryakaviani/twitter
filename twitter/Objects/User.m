@@ -24,4 +24,14 @@
     return self;
 }
 
+// This is a factory method that returns Users when initialized with an array of User Dictionaries. This comes in handy every time we receive a response with an array of Users Dictionaries.
++ (NSMutableArray *)usersWithArray:(NSArray *)dictionaries{
+    NSMutableArray *users = [NSMutableArray array];
+    for (NSDictionary *dictionary in dictionaries) {
+        User *user = [[User alloc] initWithDictionary:dictionary];
+        [users addObject:user];
+    }
+    return users;
+}
+
 @end

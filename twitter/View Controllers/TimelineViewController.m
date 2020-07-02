@@ -15,14 +15,20 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "TweetViewController.h"
+#import "ProfileViewController.h"
 
-@interface TimelineViewController () </*ComposeViewControllerDelegate, */ UITableViewDataSource, UITableViewDelegate>
+@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, TweetCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *tweets;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
 @implementation TimelineViewController
+
+- (void)tweetCell:(TweetCell *)tweetCell didTap:(User *)user{
+    [self performSegueWithIdentifier:@"profileSegue" sender:user];
+}
+
 - (IBAction)logout:(id)sender {
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -81,6 +87,7 @@
     // Reuses old objects to preserve memory. Uses TweetCell Template.
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     Tweet *tweet = self.tweets[indexPath.row];
+    cell.delegate = self;
     cell.tweet = tweet;
     cell.dateLabel.text = tweet.timeAgo;
     cell.likesLabel.text = [NSString stringWithFormat:@"%i", tweet.favoriteCount];
@@ -118,20 +125,21 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UITableViewCell *tappedCell = sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+    Tweet *tweet = self.tweets[indexPath.row];
+    NSLog(@"%@", tweet.user.name);
     if ([segue.identifier isEqualToString:@"toCompose"]) {
         UINavigationController *navigationController = [segue destinationViewController];
         ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
         composeController.delegate = self;
-    }
-    if ([segue.identifier isEqualToString:@"toTweet"]) {
-        UITableViewCell *tappedCell = sender;
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-        Tweet *tweet = self.tweets[indexPath.row];
+    } else if ([segue.identifier isEqualToString:@"toTweet"]) {
         TweetViewController *tweetViewController = [segue destinationViewController];
         tweetViewController.tweet = tweet;
+    } else if ([segue.identifier isEqualToString:@"profileSegue"]) {
+        ProfileViewController *profileViewController = [segue destinationViewController];
+        profileViewController.user = tweet.user;
     }
 }
-
-
 
 @end
