@@ -304,8 +304,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="140" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q6p-2V-UXI">
-                                <rect key="frame" x="316" y="60" width="78" height="49"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="280" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q6p-2V-UXI">
+                                <rect key="frame" x="316" y="60" width="78" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -658,7 +658,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Syt-VC-stY"/>
+        <segue reference="8jd-kL-PyY"/>
         <segue reference="cYT-6h-5FJ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

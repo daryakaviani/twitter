@@ -16,8 +16,9 @@
 #import "LoginViewController.h"
 #import "TweetViewController.h"
 #import "ProfileViewController.h"
+#import "InfiniteScrollActivityView.h"
 
-@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, TweetCellDelegate>
+@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, TweetCellDelegate, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *tweets;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
@@ -25,6 +26,9 @@
 @end
 
 @implementation TimelineViewController
+
+bool isMoreDataLoading = false;
+InfiniteScrollActivityView* loadingMoreView;
 
 - (void)tweetCell:(TweetCell *)tweetCell didTap:(User *)user{
     self.user = user;
@@ -48,6 +52,16 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchTimeline) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
+    
+    // Set up Infinite Scroll loading indicator
+    CGRect frame = CGRectMake(0, self.tableView.contentSize.height, self.tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight);
+    loadingMoreView = [[InfiniteScrollActivityView alloc] initWithFrame:frame];
+    loadingMoreView.hidden = true;
+    [self.tableView addSubview:loadingMoreView];
+    
+    UIEdgeInsets insets = self.tableView.contentInset;
+    insets.bottom += InfiniteScrollActivityView.defaultHeight;
+    self.tableView.contentInset = insets;
 }
 
 - (void) fetchTimeline {
@@ -121,7 +135,46 @@
     return cell;
 }
 
+// INFINITE SCROLLING
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if(!isMoreDataLoading){
+        // Calculate the position of one screen length before the bottom of the results
+        int scrollViewContentHeight = self.tableView.contentSize.height;
+        int scrollOffsetThreshold = scrollViewContentHeight - self.tableView.bounds.size.height;
+        
+        // When the user has scrolled past the threshold, start requesting
+        if(scrollView.contentOffset.y > scrollOffsetThreshold && self.tableView.isDragging) {
+            isMoreDataLoading = true;
+            
+            // Update position of loadingMoreView, and start loading indicator
+            CGRect frame = CGRectMake(0, self.tableView.contentSize.height, self.tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight);
+            loadingMoreView.frame = frame;
+            [loadingMoreView startAnimating];
+            
+            // Code to load more results
+            [self loadMoreData];
+        }
+    }
+}
+
+-(void)loadMoreData{
+    Tweet *latestTweet = (Tweet *) self.tweets[self.tweets.count - 1];
+    NSString *latestID = latestTweet.idStr;
+    [[APIManager shared] getUpdatedTimelineWithCompletion:latestID withCompletion:^(NSArray *tweets, NSError *error) {
+        if (tweets) {
+            NSLog(@"😎😎😎 Successfully loaded home timeline");
+            NSMutableArray *newTweets = (NSMutableArray *) tweets;
+            NSArray *newArray = [self.tweets arrayByAddingObjectsFromArray:newTweets];
+            self.tweets = (NSMutableArray *) newArray;
+            isMoreDataLoading = false;
+            [loadingMoreView stopAnimating];
+        } else {
+            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
+        }
+        [self.tableView reloadData];
+    }];
+}
 
 #pragma mark - Navigation
 

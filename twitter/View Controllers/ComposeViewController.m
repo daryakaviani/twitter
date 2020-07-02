@@ -41,8 +41,8 @@
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    self.characterCount.text = [NSString stringWithFormat:@"%lu", 140 - self.tweetBody.text.length];
-    return self.tweetBody.text.length + (text.length - range.length) <= 140;
+    self.characterCount.text = [NSString stringWithFormat:@"%lu", 280 - self.tweetBody.text.length];
+    return self.tweetBody.text.length + (text.length - range.length) <= 280;
 }
 /*
 #pragma mark - Navigation
