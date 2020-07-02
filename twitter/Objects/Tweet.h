@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) int replyCount; //Display number of replies.
 @property (nonatomic, strong) NSString *dateCreated;
 @property (nonatomic, strong) NSString *timeCreated;
+@property (nonatomic, strong) NSString *mediaLink;
 
 // For Retweets
 @property (nonatomic, strong) User *retweetedByUser;  // user who retweeted if tweet is retweet

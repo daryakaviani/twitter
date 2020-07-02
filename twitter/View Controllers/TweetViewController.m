@@ -46,6 +46,10 @@
     NSString *url = self.tweet.user.profileLink;
     NSURL *profileURL = [NSURL URLWithString:url];
     [self.profileView setImageWithURL:profileURL];
+    
+    NSString *media = self.tweet.mediaLink;
+    NSURL *mediaURL = [NSURL URLWithString:media];
+    [self.mediaView setImageWithURL:mediaURL];
 }
 
 - (IBAction)didTapReply:(id)sender {

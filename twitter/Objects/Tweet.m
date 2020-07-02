@@ -33,6 +33,12 @@
         self.favorited = [dictionary[@"favorited"] boolValue];
         self.retweetCount = [dictionary[@"retweet_count"] intValue];
         self.retweeted = [dictionary[@"retweeted"] boolValue];
+        NSDictionary *entities = dictionary[@"entities"];
+        NSArray *media = entities[@"media"];
+        for (NSDictionary *dictionary in media) {
+            self.mediaLink = dictionary[@"media_url_https"];
+        }
+        NSLog(@"%@", self.mediaLink);
         
         // Initialize the user by getting the dictionary from the Tweet's user property
         NSDictionary *user = dictionary[@"user"];
