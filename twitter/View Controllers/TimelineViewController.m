@@ -21,11 +21,13 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *tweets;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) User* user;
 @end
 
 @implementation TimelineViewController
 
 - (void)tweetCell:(TweetCell *)tweetCell didTap:(User *)user{
+    self.user = user;
     [self performSegueWithIdentifier:@"profileSegue" sender:user];
 }
 
@@ -138,7 +140,7 @@
         tweetViewController.tweet = tweet;
     } else if ([segue.identifier isEqualToString:@"profileSegue"]) {
         ProfileViewController *profileViewController = [segue destinationViewController];
-        profileViewController.user = tweet.user;
+        profileViewController.user = self.user;
     }
 }
 
