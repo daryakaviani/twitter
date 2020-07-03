@@ -33,10 +33,10 @@ The following **optional** features are implemented:
 - [x] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 - [x] When composing, you should have a countdown for the number of characters remaining for the tweet (out of 280) (**1 point**)
 - [ ] User can reply to any tweet, and replies should be prefixed with the username and the reply_id should be set when posting the tweet (**2 points**)
-- [ ] User sees embedded images in tweet if available
-- [ ] User can switch between timeline, mentions, or profile view through a tab bar (**3 points**)
-- [ ] Profile Page: pulling down the profile page should blur and resize the header image. (**4 points**)
-
+- [x] User sees embedded images in tweet if available
+- [ ] User can switch between timeline, mentions, or profile view through a tab bar.
+- [ ] Profile Page: pulling down the profile page should blur and resize the header image.
+- [ ] Profile view should include that user's timeline
 
 The following **additional** features are implemented:
 
