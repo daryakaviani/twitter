@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *bioLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followerLabel;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 

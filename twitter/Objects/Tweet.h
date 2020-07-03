@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *dateCreated;
 @property (nonatomic, strong) NSString *timeCreated;
 @property (nonatomic, strong) NSString *mediaLink;
+@property (nonatomic, strong) NSString *mediaText;
 
 // For Retweets
 @property (nonatomic, strong) User *retweetedByUser;  // user who retweeted if tweet is retweet

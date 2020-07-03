@@ -156,4 +156,23 @@ static NSString * const consumerSecret = @"0PY5H52neY9tUV4v7nypkviLfCMQj3he0vxxU
     }];
 }
 
+- (void)getMentionsTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion{
+     [self GET:@"1.1/statuses/mentions_timeline.json"
+    parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
+        // Manually cache the tweets. If the request fails, restore from cache if possible.
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:tweetDictionaries];
+        [[NSUserDefaults standardUserDefaults] setValue:data forKey:@"mentionstimeline_tweets"];
+         NSMutableArray *tweets  = [Tweet tweetsWithArray:tweetDictionaries];
+        completion(tweets, nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSArray *tweetDictionaries = nil;
+        // Fetch tweets from cache if possible
+        NSData *data = [[NSUserDefaults standardUserDefaults] valueForKey:@"mentionstimeline_tweets"];
+        if (data != nil) {
+            tweetDictionaries = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        }
+        completion(tweetDictionaries, error);
+    }];
+}
+
 @end;
