@@ -16,7 +16,7 @@
     if (self) {
         self.name = dictionary[@"name"];
         self.screenName = [@"@" stringByAppendingString:dictionary[@"screen_name"]];
-        self.profileLink = dictionary[@"profile_image_url_https"];
+        self.profileLink = [dictionary[@"profile_image_url_https"] stringByReplacingOccurrencesOfString:@"_normal" withString:@""];
         self.followers = [dictionary[@"followers_count"] intValue];
         self.following = [dictionary[@"friends_count"] intValue];
         self.bio = dictionary[@"description"];

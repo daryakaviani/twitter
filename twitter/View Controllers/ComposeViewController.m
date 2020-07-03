@@ -37,7 +37,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.tweetBody.delegate = self;
-    self.tweetBody.text = @"What do you want to tweet?";
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
