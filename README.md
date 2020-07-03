@@ -2,7 +2,7 @@
 
 **Twitter** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: **X** hours spent in total
+Time spent: **40** hours spent in total
 
 ## User Stories
 
@@ -34,30 +34,30 @@ The following **optional** features are implemented:
 - [x] When composing, you should have a countdown for the number of characters remaining for the tweet (out of 280) (**1 point**)
 - [ ] User can reply to any tweet, and replies should be prefixed with the username and the reply_id should be set when posting the tweet (**2 points**)
 - [x] User sees embedded images in tweet if available
-- [ ] User can switch between timeline, mentions, or profile view through a tab bar.
+- [x] User can switch between timeline, mentions, or profile view through a tab bar.
 - [ ] Profile Page: pulling down the profile page should blur and resize the header image.
 - [ ] Profile view should include that user's timeline
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] Added full-fledged mentions page.
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
+1. I would be interested in further exploring the Twitter API! There are so many different aspects to learn about!
 2.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/ciKsE1MVze.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+GIF created with RecordIt.
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+My API seemed to be inconsistent. There were a few chunks of time across the week where the certain APIs or all of them would be unresponsive.
 
 ## Credits
 
