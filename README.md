@@ -66,9 +66,9 @@ My API seemed to be inconsistent. There were a few chunks of time across the wee
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
-- [BDBOAuth1Manager] (https://github.com/bdbergeron/BDBOAuth1Manager) - OAuth library
-- [DateTools] (https://github.com/MatthewYork/DateTools) - date and time library
-- [ResponsiveLabel] (https://github.com/hsusmita/ResponsiveLabel) - clickable link library
+- [BDBOAuth1Manager](https://github.com/bdbergeron/BDBOAuth1Manager) - OAuth library
+- [DateTools](https://github.com/MatthewYork/DateTools) - date and time library
+- [ResponsiveLabel](https://github.com/hsusmita/ResponsiveLabel) - clickable link library
 
 ## License
 
