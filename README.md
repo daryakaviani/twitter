@@ -45,7 +45,7 @@ The following **additional** features are implemented:
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1. I would be interested in further exploring the Twitter API! There are so many different aspects to learn about!
-2.
+2. I am really interested in learning more about Autolayout using different views! I found it challenging to remember to remember the particular constraints necessary for each, so further exploring that could be interesting.
 
 ## Video Walkthrough
 
@@ -53,17 +53,22 @@ Here's a walkthrough of implemented user stories:
 
 <img src='http://g.recordit.co/ciKsE1MVze.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with RecordIt.
+<img src='http://g.recordit.co/GptIm89Nbl.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIFs created with RecordIt.
 
 ## Notes
 
-My API seemed to be inconsistent. There were a few chunks of time across the week where the certain APIs or all of them would be unresponsive.
+My API seemed to be inconsistent. There were a few chunks of time across the week where the certain APIs or all of them would be unresponsive. 10 minutes later, it would mysteriously be fully functional again.
 
 ## Credits
 
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
+- [BDBOAuth1Manager] (https://github.com/bdbergeron/BDBOAuth1Manager) - OAuth library
+- [DateTools] (https://github.com/MatthewYork/DateTools) - date and time library
+- [ResponsiveLabel] (https://github.com/hsusmita/ResponsiveLabel) - clickable link library
 
 ## License
 
