@@ -283,7 +283,7 @@
             </objects>
             <point key="canvasLocation" x="1657" y="60"/>
         </scene>
-        <!--Compose View Controller-->
+        <!--Compose Tweet-->
         <scene sceneID="Y5s-Hz-yKL">
             <objects>
                 <viewController id="igO-Or-OK9" customClass="ComposeViewController" sceneMemberID="viewController">
@@ -299,22 +299,29 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="280" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q6p-2V-UXI">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="280" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q6p-2V-UXI">
                                 <rect key="frame" x="316" y="60" width="78" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Y5t-VX-owm"/>
+                                    <constraint firstAttribute="width" constant="78" id="h2r-Db-Qjw"/>
+                                </constraints>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Q6p-2V-UXI" firstAttribute="top" secondItem="4UP-QQ-R3c" secondAttribute="top" constant="4" id="AB4-fW-FUP"/>
+                            <constraint firstItem="4UP-QQ-R3c" firstAttribute="trailing" secondItem="Q6p-2V-UXI" secondAttribute="trailing" constant="20" id="d03-hQ-oPB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4UP-QQ-R3c"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cba-Bv-FPi">
+                    <navigationItem key="navigationItem" title="Compose Tweet" id="cba-Bv-FPi">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="close-icon" id="Pfg-3d-vAC">
                             <connections>
                                 <action selector="close:" destination="igO-Or-OK9" id="zID-7J-u3b"/>
@@ -611,7 +618,7 @@
             </objects>
             <point key="canvasLocation" x="859" y="-656"/>
         </scene>
-        <!--Mentions View Controller-->
+        <!--Mentions-->
         <scene sceneID="aIE-xo-vG0">
             <objects>
                 <viewController id="ZnP-4c-dpk" customClass="MentionsViewController" sceneMemberID="viewController">
@@ -710,7 +717,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qF9-L6-TTF"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Yrg-kJ-8DY"/>
+                    <navigationItem key="navigationItem" title="Mentions" id="Yrg-kJ-8DY"/>
                     <connections>
                         <outlet property="tableView" destination="mnV-Wc-ZYh" id="7LI-6d-HHy"/>
                     </connections>
@@ -719,7 +726,7 @@
             </objects>
             <point key="canvasLocation" x="1656.521739130435" y="-1412.2767857142856"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="X31-rn-Hbs">
             <objects>
                 <viewController id="Q6u-JJ-JDL" customClass="ProfileViewController" sceneMemberID="viewController">
@@ -836,7 +843,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ARH-rA-oZg"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cH9-Yf-T01"/>
+                    <navigationItem key="navigationItem" title="Profile" id="cH9-Yf-T01"/>
                     <connections>
                         <outlet property="bioLabel" destination="A2B-Tc-7Av" id="8dr-Dn-uu0"/>
                         <outlet property="followerLabel" destination="7KA-FG-cMK" id="gPy-e4-7A5"/>
